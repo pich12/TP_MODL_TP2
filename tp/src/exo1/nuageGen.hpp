@@ -9,33 +9,33 @@
 
 template <typename T>
 
-// Declarations anticipees //-----------------------------------------------------------------------
-class NuageGen;
-
 // Declarations fonctions //------------------------------------------------------------------------
-Cartesien barycentre(const NuageGen &);
+//T barycentre(const NuageGen &);
 
-// Classe  N u a g e //-----------------------------------------------------------------------------
+// Classe  NuageGen //-----------------------------------------------------------------------------
 class NuageGen {
+
  //---------------------------------------------------------------------------------------------Type
- public: typedef std::vector<T *>::const_iterator iterator;
+ public: typedef typename std::vector<T *>::const_iterator iterator;
  //----------------------------------------------------------------------------------------Attributs
  protected: std::vector<T *> points_;
  //---------------------------------------------------------------------------------------Accesseurs
- public: std::vector<T *>::const_iterator begin() const { return points_.begin(); }
- public: std::vector<T *>::const_iterator end() const { return points_.end(); }
+ public: iterator begin() const { return points_.begin(); }
+ public: iterator end() const { return points_.end(); }
  //-------------------------------------------------------------------------------Methodes publiques
  public: void ajouter(T * point) { points_.push_back(point); }
 };
 
-// Classe  B a r y c e n t r e C a r t e s i e n //-------------------------------------------------
+// Classe  Barycentre Cartesien //-------------------------------------------------
+template <typename T>
 class BarycentreCartesien {
- public: Cartesien operator () (const NuageGen & nuage) { return barycentre(nuage); }
+ public: Cartesien operator () (const NuageGen<T> & nuage) { return barycentre(nuage); }
 };
 
-// Classe  B a r y c e n t r e P o l a i r e //-----------------------------------------------------
+// Classe  Baryentre Polaire //-----------------------------------------------------
+template <typename T>
 class BarycentrePolaire {
- public: Polaire operator () (const NuageGen & nuage) { return Polaire(barycentre(nuage)); }
+ public: Polaire operator () (const NuageGen<T> & nuage) { return Polaire(barycentre(nuage)); }
 };
 
 // Fin //-------------------------------------------------------------------------------------------
