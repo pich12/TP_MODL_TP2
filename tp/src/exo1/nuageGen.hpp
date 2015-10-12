@@ -29,14 +29,14 @@ class NuageGen {
 // Classe  Barycentre Cartesien //-------------------------------------------------
 template <typename T>
 class BarycentreCartesien {
- public: Cartesien operator () (const NuageGen<T> & nuage) { return barycentre(nuage); }
+ public: T operator () (const NuageGen<T> & nuage) { return barycentre(nuage); }
 };
-
+/*
 // Classe  Baryentre Polaire //-----------------------------------------------------
 template <typename T>
 class BarycentrePolaire {
  public: Polaire operator () (const NuageGen<T> & nuage) { return Polaire(barycentre(nuage)); }
-};
+};*/
 
 // Fin //-------------------------------------------------------------------------------------------
 #endif
